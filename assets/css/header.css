@@ -1,0 +1,77 @@
+header {
+    height: var(--header-size);
+}
+
+.brand {
+    width: var(--header-size);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-link {
+    /* width: var(--header-size); */
+    width: 200px;
+    height: 200px;
+    color: var(--text-lite) !important;
+
+}
+
+.menu {
+    color: var(--ray);
+    display: none;
+}
+
+a {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.nav-hover {
+    /* margin-left: -25px; */
+    margin-top: 5px;
+    height: 3px;
+
+    visibility: hidden;
+    transition: .5s;
+
+}
+
+.nav-link:hover {
+    background-image: url(/assets/img/Buttons/home-hover.png);
+    background-position: center bottom;
+}
+
+.nav-link:hover .nav-hover {
+    visibility: visible;
+    width: 60%;
+    background-color: var(--yellow);
+}
+
+nav {
+    height: inherit;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.btn-contact {
+    background-color: var(--dark-theme-3-hover);
+}
+
+/* HERO */
+.hero {
+    width: 100%;
+    height: calc(100vh - var(--header-size));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero-wraper {
+    /* padding: 0 5rem; */
+    /* transform: scale(1.1); */
+}
+.hero-image{
+    transform: scale(1.2);
+}

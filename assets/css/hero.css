@@ -1,0 +1,14 @@
+
+.hero-image-x {
+    display: none;
+}
+
+@media (max-width:991px) {
+    .hero-image {
+        display: none;
+    }
+
+    .hero-image-x {
+        display: block;
+    }
+}
