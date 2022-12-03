@@ -135,6 +135,9 @@ body {
 .dd-icon {
     background-color: var(--dark-theme-2);
     border-bottom: 1px solid var(--ray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .dd-text {
@@ -252,7 +255,7 @@ body {
 }
 
 .agr-btn {
-    transition: .3s;
+    /* transition: .3s; */
     visibility: hidden;
 }
 

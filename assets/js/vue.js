@@ -123,13 +123,16 @@ app.component('hero-section', {
                     <p class="pop text-lite text-justify">
                     {{bio}}
                     </p>
-                    <div
-                        class="hero-btn glow-blue mt-3 d-flex border-ray text-light fs-5 sans align-items-center justify-content-between w-fit">
-                        <a :href="heroBtn" class="px-3">GET CONSULT</a>
-                        <div class="w-4 border-ray-left center bg-theme-2">
-                            <img src="/assets/img/Icons/consult-icon.png" alt="icon">
+                    <a href="#contact" >
+                    
+                        <div
+                            class="hero-btn glow-blue mt-3 d-flex border-ray text-light fs-5 sans align-items-center justify-content-between w-fit">
+                            <a href="#contact" class="px-3">GET CONSULT</a>
+                            <div class="w-4 border-ray-left center bg-theme-2">
+                                <img src="/assets/img/Icons/consult-icon.png" alt="icon">
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </section>
                 <section class="hero-image col-lg-5 " data-aos="fade-up" data-aos-duration="1000">
                     <img src="/assets/img/infinity-with-dots.png" alt="hero image" class="img-fluid glow">
@@ -179,7 +182,6 @@ app.component('digital-marketing', {
     `,
     props: ['dm']
 })
-
 
 app.component('digital-development', {
     template:
@@ -262,11 +264,13 @@ app.component('digital-transformation', {
 
             <section class="dt px-3 d-flex">
                 <div class="dt-icons d-flex">
-                    <div class="dti-active"  @click="curr = !curr">
-                        <img src="/assets/img/Icons/digital-business-development-icon-1.png" alt="next">
+                    <div class="dti-active" id="dt-1"  @click="curr = !curr">
+                    <!--    <img src="/assets/img/Icons/grow-arrow-left-icon.png" alt="next"> -->
+                    <i class="bi bi-caret-left-fill fs-3 text-light"></i>
                     </div>
-                    <div class="dti"  @click="curr = !curr">
-                        <img src="/assets/img/Icons/digital-business-development-icon-2.png" alt="back" >
+                    <div class="dti" id="dt-2"  @click="curr = !curr">
+                    <!--    <img src="/assets/img/Icons/grow-arrow-left-icon.png" alt="next"> -->
+                    <i class="bi bi-caret-right-fill fs-3 text-light"></i>
                     </div>
                 </div>
 
@@ -287,10 +291,10 @@ app.component('digital-transformation', {
         </section>
     </section>
     `,
-    props: ['dt1','dt2'],
-    data(){
-        return{
-            curr:true
+    props: ['dt1', 'dt2'],
+    data() {
+        return {
+            curr: true
         }
     }
 })
@@ -347,7 +351,7 @@ app.component('vr-section', {
                         {{bio}}
                         </p>
 
-                        <div
+                        <div 
                             class="hero-btn glow-blue d-flex border-ray text-light fs-5 sans align-items-center justify-content-between w-fit">
                             <a :href="btn" class="px-3">Book a Slot</a>
                             <div class="w-4 border-ray-left center bg-theme-2">
@@ -363,6 +367,7 @@ app.component('vr-section', {
         </section>
     </section>
     `,
+
     props: ['heading', 'bio', 'btn']
 })
 
@@ -410,13 +415,15 @@ app.component('aggreements', {
                         <h6 class="text-lite pop fs-6 "><i class="bi bi-check2-all px-3"></i>Web & App
                             Development
                         </h6>
-                        <div
-                            class="agr-btn glow-blue mt-3 d-flex border-ray text-light fs-5 sans align-items-center justify-content-between mx-auto">
-                            <a href="" class="px-3 text-center w-100">INQUIRE NOW</a>
-                            <div class="w-4 border-ray-left center bg-theme-2">
-                                <img src="/assets/img/Icons/consult-icon.png" alt="icon">
+                        <a href="#contact" >
+                            <div
+                                class="agr-btn glow-blue mt-3 d-flex border-ray text-light fs-5 sans align-items-center justify-content-between mx-auto">
+                                <a href="#contact" class="px-3 text-center w-100">INQUIRE NOW</a>
+                                <div class="w-4 border-ray-left center bg-theme-2">
+                                    <img src="/assets/img/Icons/consult-icon.png" alt="icon">
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
                     <!-- borders -->
@@ -444,15 +451,15 @@ app.component('aggreements', {
                         <h6 class="text-lite pop fs-6 "><i class="bi bi-check2-all px-3"></i>Continuous
                             Development
                         </h6>
-                        <div class="agr-btn">
+                        <a href="#contact" >
                             <div
-                                class="glow-blue mt-3 d-flex border-ray text-light fs-5 sans align-items-center justify-content-between mx-auto">
-                                <a href="" class="px-3 text-center w-100">INQUIRE NOW</a>
+                                class="agr-btn glow-blue mt-3 d-flex border-ray text-light fs-5 sans align-items-center justify-content-between mx-auto">
+                                <a href="#contact" class="px-3 text-center w-100">INQUIRE NOW</a>
                                 <div class="w-4 border-ray-left center bg-theme-2">
                                     <img src="/assets/img/Icons/consult-icon.png" alt="icon">
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
                     <!-- borders -->
@@ -481,13 +488,15 @@ app.component('aggreements', {
                             Development
                             Roadmap
                         </h6>
-                        <div
-                            class="agr-btn glow-blue mt-3 d-flex border-ray text-light fs-5 sans align-items-center justify-content-between mx-auto">
-                            <a href="" class="px-3 text-center w-100">INQUIRE NOW</a>
-                            <div class="w-4 border-ray-left center bg-theme-2">
-                                <img src="/assets/img/Icons/consult-icon.png" alt="icon">
+                        <a href="#contact" >
+                            <div
+                                class="agr-btn glow-blue mt-3 d-flex border-ray text-light fs-5 sans align-items-center justify-content-between mx-auto">
+                                <a href="#contact" class="px-3 text-center w-100">INQUIRE NOW</a>
+                                <div class="w-4 border-ray-left center bg-theme-2">
+                                    <img src="/assets/img/Icons/consult-icon.png" alt="icon">
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
                     <!-- borders -->
@@ -499,7 +508,12 @@ app.component('aggreements', {
     </section>
 </section>
     `,
-    props:['agr1','agr2','agr3'],
+    props: ['agr1', 'agr2', 'agr3'],
+    methods: {
+        visit(link) {
+            location.href = link
+        }
+    }
 })
 
 app.component('team-section', {
@@ -545,7 +559,7 @@ app.component('team-section', {
     </section>
 
     `,
-    props:['team']
+    props: ['team']
 })
 
 app.component('contact-section', {
@@ -628,7 +642,7 @@ app.component('contact-section', {
             </div>
         </section>
     `,
-    props:['profile']
+    props: ['profile']
 })
 
 app.mount('#app')
