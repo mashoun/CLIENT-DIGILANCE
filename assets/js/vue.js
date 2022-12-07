@@ -264,11 +264,11 @@ app.component('digital-transformation', {
 
             <section class="dt px-3 d-flex">
                 <div class="dt-icons d-flex">
-                    <div class="dti-active" id="dt-1"  @click="curr = !curr">
+                    <div :class="nav1" id="dt-1"  @click="curr = !curr;nav1 = 'dti-active';nav2 = 'dti'">
                     <!--    <img src="/assets/img/Icons/grow-arrow-left-icon.png" alt="next"> -->
                     <i class="bi bi-caret-left-fill fs-3 text-light"></i>
                     </div>
-                    <div class="dti" id="dt-2"  @click="curr = !curr">
+                    <div :class="nav2" id="dt-2"  @click="curr = !curr;nav1 = 'dti';nav2 = 'dti-active'">
                     <!--    <img src="/assets/img/Icons/grow-arrow-left-icon.png" alt="next"> -->
                     <i class="bi bi-caret-right-fill fs-3 text-light"></i>
                     </div>
@@ -294,6 +294,7 @@ app.component('digital-transformation', {
     props: ['dt1', 'dt2'],
     data() {
         return {
+            nav1: 'dti-active',
             curr: true
         }
     }
@@ -350,14 +351,16 @@ app.component('vr-section', {
                         <p class="pop text-lite">
                         {{bio}}
                         </p>
-
+                        <a href="#contact" >
+                        
                         <div 
                             class="hero-btn glow-blue d-flex border-ray text-light fs-5 sans align-items-center justify-content-between w-fit">
-                            <a :href="btn" class="px-3">Book a Slot</a>
+                            <a href="#contact" class="px-3">Book a Slot</a>
                             <div class="w-4 border-ray-left center bg-theme-2">
                                 <img src="/assets/img/Icons/consult-icon.png" alt="icon">
                             </div>
                         </div>
+                        </a>
                     </div>
                 </div>
             </section>
