@@ -255,8 +255,8 @@ body {
 }
 
 .agr-btn {
-    /* transition: .3s; */
-    visibility: hidden;
+    transition: .3s;
+    opacity: 0%;
 }
 
 .agr-active {
@@ -271,7 +271,7 @@ body {
 }
 
 .agr-active .agr-btn {
-    visibility: visible;
+    opacity: 100%;
 }
 
 .agr-list {
@@ -311,7 +311,7 @@ body {
 
 .agr-pot:hover .agr-btn {
 
-    visibility: visible;
+    opacity: 100%;
 }
 
 .agr-pot:hover .agr-divider-right,
