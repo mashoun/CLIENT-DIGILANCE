@@ -616,26 +616,28 @@ app.component('contact-section', {
                     <div class="p-3 position-relative">
                         <div class="d-flex flex-column justify-content-between gap-4 position-relative">
                             <div class="d-flex gap-4">
-                                <input type="text" class="w-50 form-input text-light pop fs-6" placeholder="Name">
-                                <input type="text" class="w-50 form-input text-light pop fs-6" placeholder="Email">
+                                <input v-model="data.name" type="text" class="w-50 form-input text-light pop fs-6 is-invalid" placeholder="Name">
+                                <input v-model="data.email"  type="email" class="w-50 form-input text-light pop fs-6" placeholder="Email">
                             </div>
                             <div class="d-flex gap-4">
-                                <input type="text" class="w-50 form-input text-light pop fs-6" placeholder="Phone">
-                                <input type="text" class="w-50 form-input text-light pop fs-6" placeholder="Website">
+                                <input v-model="data.phone"  type="number" class="w-50 form-input text-light pop fs-6" placeholder="Phone">
+                                <input v-model="data.website"  type="text" class="w-50 form-input text-light pop fs-6" placeholder="Website">
                             </div>
                             <div class="d-flex">
-                                <input type="text" class="w-100 form-input text-light pop fs-6"
+                                <input v-model="data.consult"  type="text" class="w-100 form-input text-light pop fs-6"
                                     placeholder="Computer Consult">
                                 <div class="w-4 border-blue-3 center bg-blue-2">
                                     <img src="/assets/img/Icons/consult-icon.png" alt="icon">
                                 </div>
                             </div>
                             <div class="">
-                                <textarea class="w-100 form-input text-light pop fs-6" placeholder="Comment"></textarea>
+                                <textarea v-model="data.comment"  class="w-100 form-input text-light pop fs-6" placeholder="Comment"></textarea>
                             </div>
                             <div class="d-flex justify-content-center"  data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="100">
-                                <button class="w-50 form-submit p-3"><strong
-                                        class="text-danger">SUBMIT</strong></button>
+                                <button class="w-50 form-submit p-3" @click="submit">
+                                    <div v-if="spinner" class="spinner-border text-dark"></div>
+                                    <strong v-else class="text-danger"> SUBMIT</strong>
+                                </button>
                             </div>
                         </div>
                         <div class="form-dash"></div>
@@ -645,7 +647,99 @@ app.component('contact-section', {
             </div>
         </section>
     `,
-    props: ['profile']
+    props: ['profile', 'api'],
+    data() {
+        return {
+            data: {
+                name: '',
+                email: '',
+                phone: '',
+                website: '',
+                consult: '',
+                comment: ''
+            },
+            spinner: false
+
+        }
+    },
+    methods: {
+
+        submit() {
+            this.spinner = true
+            fetch(this.api, {
+                method: 'POST', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(this.data),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log('Success:', data);
+
+                    this.spinner = false
+                    alert("Thank you")
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    this.spinner = false
+                });
+        },
+
+        checkInput(id) {
+            // alert(document.getElementById(id).value)
+            if (document.getElementById(id).value.length >= 1) {
+
+                document.getElementById(id).classList.remove('is-invalid')
+                document.getElementById(id).classList.add('is-valid')
+            } else {
+
+                document.getElementById(id).classList.remove('is-valid')
+                document.getElementById(id).classList.add('is-invalid')
+            }
+        },
+        checkForm() {
+            // all required
+            var res = 1
+            if (this.name.trim() == 0) {
+                document.getElementById('name').classList.add('is-invalid')
+                res++
+            }
+            if (this.email.trim() == 0) {
+                document.getElementById('email').classList.add('is-invalid')
+                res++
+            }
+            if (this.country == '') {
+                document.getElementById('country').classList.add('is-invalid')
+                res++
+            } if (this.gender.trim() == 0) {
+                document.getElementById('gender').classList.add('is-invalid')
+                res++
+            }
+            if (this.satisfied.trim() == 0) {
+                document.getElementById('satisfied').classList.add('is-invalid')
+                res++
+            }
+            if (this.rate.trim() == 0) {
+                document.getElementById('rate').classList.add('is-invalid')
+                res++
+            }
+            if (this.attending.trim() == 0) {
+                document.getElementById('attending').classList.add('is-invalid')
+                res++
+            }
+            if (this.feedback.trim() == 0) {
+                document.getElementById('feedback').classList.add('is-invalid')
+                res++
+            }
+            if (this.code.trim() == 0) {
+                document.getElementById('code').classList.add('is-invalid')
+                res++
+            }
+            return res
+
+        }
+    }
 })
 
 app.mount('#app')
